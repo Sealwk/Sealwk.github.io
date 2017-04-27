@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="进入工程根目录，提交代码 git add . git commit -m “First commit.”">
-<meta name="keywords">
+<meta name="description" content="进入工程根目录，提交代码 git add .git commit -m “First commit.”">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用命令">
 <meta property="og:url" content="http://yoursite.com/2017/04/18/gitchang-yong-ming-ling/index.html">
 <meta property="og:site_name" content="Seal's Blog">
-<meta property="og:description" content="进入工程根目录，提交代码 git add . git commit -m “First commit.”">
-<meta property="og:updated_time" content="2017-04-27T07:02:10.000Z">
+<meta property="og:description" content="进入工程根目录，提交代码 git add .git commit -m “First commit.”">
+<meta property="og:updated_time" content="2017-04-27T10:54:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令">
-<meta name="twitter:description" content="进入工程根目录，提交代码 git add . git commit -m “First commit.”">
+<meta name="twitter:description" content="进入工程根目录，提交代码 git add .git commit -m “First commit.”">
 
 
 
@@ -245,16 +245,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
-            
-            站点地图
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-commonweal">
           <a href="/404.html" rel="section">
             
@@ -387,47 +377,49 @@
 
       
         <ul>
-<li>进入工程根目录，提交代码<blockquote>
-<p>git add .</p>
-<p>git commit -m “First commit.”</p>
-<a id="more"></a></blockquote>
+<li><strong>进入工程根目录，提交代码</strong><blockquote>
+<p>git add .<br>git commit -m “First commit.”</p>
+</blockquote>
 </li>
-<li><p>查看文件修改情况</p>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p><strong>查看文件修改情况</strong></p>
 <blockquote>
 <p>git status</p>
 </blockquote>
 </li>
-<li><p>查看所有文件更改内容</p>
+<li><p><strong>查看所有文件更改内容</strong></p>
 <blockquote>
 <p>git diff</p>
 </blockquote>
 </li>
-<li><p>查看具体文件更改内容</p>
+<li><p><strong>查看具体文件更改内容</strong></p>
 <blockquote>
 <p>git diff app/src/main/java/com/example/providertest/MainActivity.java</p>
 </blockquote>
 </li>
-<li><p>撤销未提交的修改，这个撤销的动作必须是在未add前进行,否则无法撤销</p>
+<li><p><strong>撤销未提交的修改，这个撤销的动作必须是在未add前进行,否则无法撤销</strong></p>
 <blockquote>
 <p>git checkout app/src/main/java/com/example/providertest/MainActivity.java</p>
 </blockquote>
 </li>
-<li><p>对于上面这种情况，如果想在add之后进行撤销的话，先进行reset，才能撤销</p>
+<li><p><strong>对于上面这种情况，如果想在add之后进行撤销的话，先进行reset，才能撤销</strong></p>
 <blockquote>
 <p>git reset HEAD app/src/main/java/com/example/providertest/MainActivity.java</p>
 </blockquote>
 </li>
-<li><p>查看所有提交记录</p>
+<li><p><strong>查看所有提交记录</strong></p>
 <blockquote>
 <p>git log</p>
 </blockquote>
 </li>
-<li><p>查看某一条提交记录，ID为某条记录的id，通过<code>git log</code>命令获取</p>
+<li><p><strong>查看某一条提交记录，ID为某条记录的id，通过<code>git log</code>命令获取</strong></p>
 <blockquote>
 <p>git log ID -1</p>
 </blockquote>
 </li>
-<li><p>如果想要查看某条记录修改了什么内容，可以在命令中加入-p参数</p>
+<li><p><strong>如果想要查看某条记录修改了什么内容，可以在命令中加入-p参数</strong></p>
 <blockquote>
 <p>git log ID -1 -p</p>
 </blockquote>
@@ -459,6 +451,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
       
 
       
@@ -566,7 +564,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
