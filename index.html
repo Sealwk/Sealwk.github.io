@@ -377,43 +377,16 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个应用，应该保持一套统一的样式，包括Button、EditText、ProgressBar、Toast、Checkbox等各种控件的样式，还包括控件间隔、文字大小和颜色、阴影等等。web的样式用css来定义，而android的样式主要则是通过shape、selector、layer-list、level-list、style、theme等组合实现。</p>
-<p>本文参考<a href="http://keeganlee.me/post/android/20150830" target="_blank" rel="external">Keegan小钢</a>的文章，通过自己实践进行总结。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个应用，应该保持一套统一的样式，包括Button、EditText、ProgressBar、Toast、Checkbox等各种控件的样式，还包括控件间隔、文字大小和颜色、阴影等等。web的样式用css来定义，而android的样式主要则是通过shape、selector、layer-list、level-list、style、theme等组合实现。</p>
+<p>本文参考<a href="http://keeganlee.me/post/android/20150830">Keegan小钢</a>的文章，通过自己实践进行总结。</p>
 <h2 id="shape"><a href="#shape" class="headerlink" title="shape"></a>shape</h2><p>shape是Android最基础的形状定义工具。一般用shape定义的xml文件存放在<strong>drawable</strong>目录下，若项目没有该目录则新建一个，而不要将它放到drawable-hdpi等目录中。</p>
-<p>使用shape可以自定义形状，可以定义下面四种类型的形状，通过android:shape属性指定：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、弧形等</div><div class="line">oval: 椭圆形，用得比较多的是画正圆</div><div class="line">line: 线形，可以画实线和虚线</div><div class="line">ring: 环形，可以画环形进度条</div></pre></td></tr></table></figure></p>
-<p>下面将对每个形状进行总结。</p>
-<h3 id="rectangle（矩形）"><a href="#rectangle（矩形）" class="headerlink" title="rectangle（矩形）"></a>rectangle（矩形）</h3><p>rectangle是默认的形状，也是用得最多的形状，可用于文字背景、按钮背景、控件或布局背景等，以下是一些简单的例子：<br><img src="https://github.com/Sealwk/temp_image/raw/master/demo_shape.png" alt="shape示例"></p>
-<p>相关特性：</p>
-<ul>
-<li>solid</li>
-</ul>
-<p>设置形状填充的颜色，只有android:color一个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;solid android:color=&quot;#1C86EE&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>padding</li>
-</ul>
-<p>设置内容与形状边界的内间距，可分别设置左右上下的距离<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;padding</div><div class="line">        android:left=&quot;10dp&quot;</div><div class="line">        android:right=&quot;10dp&quot;</div><div class="line">        android:top=&quot;10dp&quot;</div><div class="line">        android:bottom=&quot;10dp&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>gradient</li>
-</ul>
-<p>设置形状的渐变颜色，可以是线性渐变、辐射渐变、扫描性渐变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">android:type 渐变的类型</div><div class="line">        linear 线性渐变，默认的渐变类型</div><div class="line">        radial 放射渐变，设置该项时，android:gradientRadius也必须设置</div><div class="line">        sweep 扫描性渐变</div><div class="line">android:startColor 渐变开始的颜色</div><div class="line">android:endColor 渐变结束的颜色</div><div class="line">android:centerColor 渐变中间的颜色</div><div class="line">android:angle 渐变的角度，线性渐变时才有效，必须是45的倍数，0表示从左到右，90表示从下到上</div><div class="line">android:centerX 渐变中心的相对X坐标，放射渐变时才有效，在0.0到1.0之间，默认为0.5，表示在正中间</div><div class="line">android:centerY 渐变中心的相对X坐标，放射渐变时才有效，在0.0到1.0之间，默认为0.5，表示在正中间</div><div class="line">android:gradientRadius 渐变的半径，只有渐变类型为radial时才使用</div><div class="line">android:useLevel 如果为true，则可在LevelListDrawable中使用</div></pre></td></tr></table></figure></p>
-<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;gradient android:type=&quot;linear&quot;</div><div class="line">          android:startColor=&quot;#FFFFFF&quot;</div><div class="line">          android:centerColor=&quot;#CAE1FF&quot;</div><div class="line">          android:endColor=&quot;#1C86EE&quot;</div><div class="line">          android:angle=&quot;90&quot;</div><div class="line">          android:useLevel=&quot;false&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>corners</li>
-</ul>
-<p>设<corners android:radius="200dp">置圆角，只适用于rectangle类型，可分别设置四个角不同半径的圆角，当设置的圆角半径很大时，比如200dp，就可变成弧形边了。</corners></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">android:radius 圆角半径，会被下面每个特定的圆角属性重写</div><div class="line">android:topLeftRadius 左上角的半径</div><div class="line">android:topRightRadius 右上角的半径</div><div class="line">android:bottomLeftRadius 左下角的半径</div><div class="line">android:bottomRightRadius 右下角的半径</div></pre></td></tr></table></figure>
-<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;corners android:radius=&quot;200dp&quot;</div><div class="line">         android:topLeftRadius=&quot;10dp&quot;</div><div class="line">         android:topRightRadius=&quot;10dp&quot;</div><div class="line">         android:bottomLeftRadius=&quot;0dp&quot;</div><div class="line">         android:bottomRightRadius=&quot;0dp&quot;/&gt;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>stroke</li>
-</ul>
-<p>设置描边，可描成实线或虚线。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">android:color 描边的颜色</div><div class="line">android:width 描边的宽度</div><div class="line">android:dashWidth 设置虚线时的横线长度</div><div class="line">android:dashGap 设置虚线时的横线之间的距离</div></pre></td></tr></table></figure></p>
-<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;stroke android:color=&quot;#000000&quot;</div><div class="line">        android:width=&quot;2dp&quot;</div><div class="line">        android:dashWidth=&quot;8dp&quot;</div><div class="line">        android:dashGap=&quot;8dp&quot;/&gt;</div><div class="line">&lt;/shape&gt;</div></pre></td></tr></table></figure></p>
-<p>“加了实线描边的矩形”示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">       android:shape=&quot;rectangle&quot;&gt;</div><div class="line">    &lt;solid android:color=&quot;#1C86EE&quot;/&gt;</div><div class="line">    &lt;corners android:radius=&quot;200dp&quot;/&gt;</div><div class="line">    &lt;padding</div><div class="line">        android:bottom=&quot;10dp&quot;</div><div class="line">        android:left=&quot;10dp&quot;</div><div class="line">        android:right=&quot;10dp&quot;</div><div class="line">        android:top=&quot;10dp&quot;/&gt;</div><div class="line">    &lt;stroke</div><div class="line">        android:width=&quot;2dp&quot;</div><div class="line">        android:color=&quot;#000000&quot;</div><div class="line">        android:dashGap=&quot;8dp&quot;</div><div class="line">        android:dashWidth=&quot;8dp&quot;/&gt;</div><div class="line">&lt;/shape&gt;</div></pre></td></tr></table></figure></p>
-<hr>
-<p>未完待续。。。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/08/Android样式开发总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
