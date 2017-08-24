@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="部署Hexo在部署Hexo的时候，需要配置hexo/_config.yml文件，这个文件中有一个deploy的配置，我看到很多文章讲到最好将repo配置成ssh访问的形式。我在配置ssh的时候报了很多错，也没有解决。最终我选择的下面这种形式，比ssh简单多了，不用生成什么key，还要放到GitHub上。按照下面的demo进行配置就可以发布了。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="前言由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从Octopress转到Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/04/27/从Octopress转到Hexo/index.html">
+<meta property="og:title" content="Android Studio引入jar包和so库">
+<meta property="og:url" content="http://yoursite.com/2017/08/24/jarandso/index.html">
 <meta property="og:site_name" content="Seal's Blog">
-<meta property="og:description" content="部署Hexo在部署Hexo的时候，需要配置hexo/_config.yml文件，这个文件中有一个deploy的配置，我看到很多文章讲到最好将repo配置成ssh访问的形式。我在配置ssh的时候报了很多错，也没有解决。最终我选择的下面这种形式，比ssh简单多了，不用生成什么key，还要放到GitHub上。按照下面的demo进行配置就可以发布了。">
-<meta property="og:updated_time" content="2017-04-27T12:34:20.000Z">
+<meta property="og:description" content="前言由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。">
+<meta property="og:updated_time" content="2017-08-24T06:35:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从Octopress转到Hexo">
-<meta name="twitter:description" content="部署Hexo在部署Hexo的时候，需要配置hexo/_config.yml文件，这个文件中有一个deploy的配置，我看到很多文章讲到最好将repo配置成ssh访问的形式。我在配置ssh的时候报了很多错，也没有解决。最终我选择的下面这种形式，比ssh简单多了，不用生成什么key，还要放到GitHub上。按照下面的demo进行配置就可以发布了。">
+<meta name="twitter:title" content="Android Studio引入jar包和so库">
+<meta name="twitter:description" content="前言由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/27/从Octopress转到Hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/24/jarandso/"/>
 
 
 
 
 
-  <title>从Octopress转到Hexo | Seal's Blog</title>
+  <title>Android Studio引入jar包和so库 | Seal's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/从Octopress转到Hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/jarandso/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Seal">
@@ -304,7 +304,7 @@
             
             
               
-                从Octopress转到Hexo
+                Android Studio引入jar包和so库
               
             
           </h1>
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T18:36:17+08:00">
-                2017-04-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T14:32:05+08:00">
+                2017-08-24
               </time>
             
 
@@ -342,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -376,39 +376,23 @@
       
 
       
-        <h3 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h3><p>在部署Hexo的时候，需要配置hexo/_config.yml文件，这个文件中有一个deploy的配置，我看到很多文章讲到最好将repo配置成ssh访问的形式。我在配置ssh的时候报了很多错，也没有解决。最终我选择的下面这种形式，比ssh简单多了，不用生成什么key，还<br>要放到GitHub上。按照下面的demo进行配置就可以发布了。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/sealwk/sealwk.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://segmentfault.com/a/1190000003088603" target="_blank" rel="external">最新版HEXO配置</a><br><a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="external">Hexo中文官方</a></p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
-<li><p><strong>新建一遍文章</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new title</div></pre></td></tr></table></figure>
-<p>简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo n title</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>预览</strong></p>
-<p>访问 <code>http://localhost:4000/</code> 进行本地预览</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s --watch</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>生成静态文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>发布到GitHub</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>查看Hexo版本</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo v</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>清除缓存文件(db.json)和已生成的静态文件(public)</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure>
-<p>简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo c</div></pre></td></tr></table></figure>
-</li>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。<br><a id="more"></a></p>
+<h3 id="导入jar包"><a href="#导入jar包" class="headerlink" title="导入jar包"></a>导入jar包</h3><ul>
+<li>将需要导入的jar包复制到module/libs/目录下</li>
+<li>修改module/build.gradle文件的dependencies闭包，编辑这个文件有两种方法：<br>加入编译jar包的代码，点击AS自动弹出的sync now即可。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile files(&apos;libs/AnyOfficeSDK.jar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你不想在引入每个jar时，都进行上面的操作。那么你完全可以添加下面这行代码，表示编译所有的jar包。同样点击AS自动弹出的sync now<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(include: [&apos;*.jar&apos;], dir: &apos;libs&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="导入so库"><a href="#导入so库" class="headerlink" title="导入so库"></a>导入so库</h3><ul>
+<li>在module/src/main目录下新建文件夹，文件夹名称为jniLibs，注意大小写不要写错了</li>
+<li>将需要导入的so库复制到jniLibs目录下即可</li>
+</ul>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>我按照上面的步骤成功导入了jar包和so库，编译并且打包成功。但是在运行app时，闪退！通过抓取日志，发现没有找到jar包的方法：</p>
+<blockquote>
+<p>No pending exception expected: java.lang.NoSuchMethodError: no static method</p>
+</blockquote>
+<p>为什么明明导入了jar包，却仍然找不到jar包中的方法呢？由此怀疑是否jar包没有打入apk中呢？又或者已经打入apk，系统为什么没有找到呢？那什么会影响编译打包呢？由此我想到了混淆，打开proguard.cfg文件，添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-dontwarn com.huawei.**</div><div class="line">-keep class com.huawei.**&#123;*;&#125;</div></pre></td></tr></table></figure></p>
+<p>-dontwarn 表示让ProGuard不要警告找不到com.huawei.<strong>  这个包里面的类的相关引用<br>-keep class 表示保持com.huawei.</strong>  这个包里面的所有类和所有方法不被混淆<br>再次编译打包，发现apk大小要明显大于之前的包。运行app，问题解决！</p>
 
       
     </div>
@@ -438,7 +422,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
         </div>
       
@@ -451,18 +435,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/25/app/" rel="next" title="Error running app Default Activity not found">
-                <i class="fa fa-chevron-left"></i> Error running app Default Activity not found
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/18/gitchang-yong-ming-ling/" rel="prev" title="Git常用命令">
-                Git常用命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/10/sdkversion23/" rel="prev" title="适配Android6.0的两点总结">
+                适配Android6.0的两点总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -592,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署Hexo"><span class="nav-number">1.</span> <span class="nav-text">部署Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">3.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入jar包"><span class="nav-number">2.</span> <span class="nav-text">导入jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入so库"><span class="nav-number">3.</span> <span class="nav-text">导入so库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
             
 
           </div>
