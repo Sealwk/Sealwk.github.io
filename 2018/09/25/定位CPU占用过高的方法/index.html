@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Test," />
 
 
 
@@ -90,17 +90,22 @@
 
 
 
-<meta name="description" content="前言由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。">
-<meta name="keywords" content="Android">
+<meta name="description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。 解决思路 对接口持续进行并发，使用top命令确认PID    查看24871的线程数为256个，有两种方法：   cat /proc/2487">
+<meta name="keywords" content="Test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Studio引入jar包和so库">
-<meta property="og:url" content="http://yoursite.com/2017/08/24/jarandso/index.html">
+<meta property="og:title" content="定位CPU占用过高的方法">
+<meta property="og:url" content="http://yoursite.com/2018/09/25/定位CPU占用过高的方法/index.html">
 <meta property="og:site_name" content="Seal's Blog">
-<meta property="og:description" content="前言由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。">
-<meta property="og:updated_time" content="2017-08-24T06:35:56.000Z">
+<meta property="og:description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。 解决思路 对接口持续进行并发，使用top命令确认PID    查看24871的线程数为256个，有两种方法：   cat /proc/2487">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-0cfcafe23149f479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-07cf736c819d9a7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-def090fb1a03a2d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-ee784f0e2862ca6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-25T12:19:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Studio引入jar包和so库">
-<meta name="twitter:description" content="前言由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。">
+<meta name="twitter:title" content="定位CPU占用过高的方法">
+<meta name="twitter:description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。 解决思路 对接口持续进行并发，使用top命令确认PID    查看24871的线程数为256个，有两种方法：   cat /proc/2487">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5652645-0cfcafe23149f479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -128,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/24/jarandso/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/25/定位CPU占用过高的方法/"/>
 
 
 
 
 
-  <title>Android Studio引入jar包和so库 | Seal's Blog</title>
+  <title>定位CPU占用过高的方法 | Seal's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +288,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/jarandso/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/定位CPU占用过高的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Seal">
@@ -304,7 +309,7 @@
             
             
               
-                Android Studio引入jar包和so库
+                定位CPU占用过高的方法
               
             
           </h1>
@@ -319,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T14:32:05+08:00">
-                2017-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T20:03:08+08:00">
+                2018-09-25
               </time>
             
 
@@ -342,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/Test/" itemprop="url" rel="index">
+                    <span itemprop="name">Test</span>
                   </a>
                 </span>
 
@@ -376,23 +381,39 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于项目要对接华为Anyoffice平台，所以需要引入对应SDKjar包和so库。其实网上有很多资料可以查到：AS下如何导入jar包和so库。但是正因为资料很多，所以说法不一，有些配置已经不再适用，有一些则写的比较混乱，容易引起误导。同时也出于总结的原因，所以才有了这篇文章。<br><a id="more"></a></p>
-<h3 id="导入jar包"><a href="#导入jar包" class="headerlink" title="导入jar包"></a>导入jar包</h3><ul>
-<li>将需要导入的jar包复制到module/libs/目录下</li>
-<li>修改module/build.gradle文件的dependencies闭包，编辑这个文件有两种方法：<br>加入编译jar包的代码，点击AS自动弹出的sync now即可。</li>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。</p>
+<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ul>
+<li>对接口持续进行并发，使用top命令确认PID</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile files(&apos;libs/AnyOfficeSDK.jar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果你不想在引入每个jar时，都进行上面的操作。那么你完全可以添加下面这行代码，表示编译所有的jar包。同样点击AS自动弹出的sync now<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(include: [&apos;*.jar&apos;], dir: &apos;libs&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="导入so库"><a href="#导入so库" class="headerlink" title="导入so库"></a>导入so库</h3><ul>
-<li>在module/src/main目录下新建文件夹，文件夹名称为jniLibs，注意大小写不要写错了</li>
-<li>将需要导入的so库复制到jniLibs目录下即可</li>
+<p><img src="https://upload-images.jianshu.io/upload_images/5652645-0cfcafe23149f479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="top.png"></p>
+<ul>
+<li>查看24871的线程数为256个，有两种方法：</li>
 </ul>
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>我按照上面的步骤成功导入了jar包和so库，编译并且打包成功。但是在运行app时，闪退！通过抓取日志，发现没有找到jar包的方法：</p>
 <blockquote>
-<p>No pending exception expected: java.lang.NoSuchMethodError: no static method</p>
+<p>cat /proc/24871/status</p>
 </blockquote>
-<p>为什么明明导入了jar包，却仍然找不到jar包中的方法呢？由此怀疑是否jar包没有打入apk中呢？又或者已经打入apk，系统为什么没有找到呢？那什么会影响编译打包呢？由此我想到了混淆，打开proguard.cfg文件，添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-dontwarn com.huawei.**</div><div class="line">-keep class com.huawei.**&#123;*;&#125;</div></pre></td></tr></table></figure></p>
-<p>-dontwarn 表示让ProGuard不要警告找不到com.huawei.<strong>  这个包里面的类的相关引用<br>-keep class 表示保持com.huawei.</strong>  这个包里面的所有类和所有方法不被混淆<br>再次编译打包，发现apk大小要明显大于之前的包。运行app，问题解决！</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5652645-07cf736c819d9a7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>ps hH p 24871 | wc -l</p>
+</blockquote>
+<ul>
+<li>查看线程的资源使用，每个线程资源占用虽然都比较小，但是线程数量较多，造成总的CPU占用较高</li>
+</ul>
+<blockquote>
+<p>top -H -p 24871</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/5652645-def090fb1a03a2d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ul>
+<li>使用jstack获取jvm DUMP文件，查看线程运行状态。</li>
+</ul>
+<blockquote>
+<p>jstack -l 24871 &gt; temp</p>
+</blockquote>
+<p>在DUMP文件中查找线程时，需要先进行进制转换。在上一步中获取资源使用最高的线程ID：5611，然后将5611转换为16进制：15eb（转换工具：<a href="http://tool.oschina.net/hexconvert" target="_blank" rel="external">http://tool.oschina.net/hexconvert</a><br>）</p>
+<ul>
+<li>最后在DUMP文件中，查找15eb，获取当前线程的状态以及正在执行的类和方法。在测试过程中，可以不定时的多生成几个DUMP文件进行观察比较。</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/5652645-ee784f0e2862ca6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
       
     </div>
@@ -422,7 +443,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/Test/" rel="tag"># Test</a>
           
         </div>
       
@@ -435,18 +456,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/解决移动端抓取https乱码问题/" rel="next" title="解决移动端抓取https乱码问题">
-                <i class="fa fa-chevron-left"></i> 解决移动端抓取https乱码问题
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/10/sdkversion23/" rel="prev" title="适配Android6.0的两点总结">
-                适配Android6.0的两点总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/19/Shell20171119/" rel="prev" title="Shell中的括号、双括号、方括号、双方括号">
+                Shell中的括号、双括号、方括号、双方括号 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -576,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入jar包"><span class="nav-number">2.</span> <span class="nav-text">导入jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入so库"><span class="nav-number">3.</span> <span class="nav-text">导入so库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决思路"><span class="nav-number">2.</span> <span class="nav-text">解决思路</span></a></li></ol></div>
             
 
           </div>
