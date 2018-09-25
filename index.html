@@ -377,42 +377,14 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。</p>
-<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ul>
-<li>对接口持续进行并发，使用top命令确认PID</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/5652645-0cfcafe23149f479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="top.png"></p>
-<ul>
-<li>查看24871的线程数为256个，有两种方法：</li>
-</ul>
-<blockquote>
-<p>cat /proc/24871/status</p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/5652645-07cf736c819d9a7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<blockquote>
-<p>ps hH p 24871 | wc -l</p>
-</blockquote>
-<ul>
-<li>查看线程的资源使用，每个线程资源占用虽然都比较小，但是线程数量较多，造成总的CPU占用较高</li>
-</ul>
-<blockquote>
-<p>top -H -p 24871</p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/5652645-def090fb1a03a2d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>使用jstack获取jvm DUMP文件，查看线程运行状态。</li>
-</ul>
-<blockquote>
-<p>jstack -l 24871 &gt; temp</p>
-</blockquote>
-<p>在DUMP文件中查找线程时，需要先进行进制转换。在上一步中获取资源使用最高的线程ID：5611，然后将5611转换为16进制：15eb（转换工具：<a href="http://tool.oschina.net/hexconvert" target="_blank" rel="external">http://tool.oschina.net/hexconvert</a><br>）</p>
-<ul>
-<li>最后在DUMP文件中，查找15eb，获取当前线程的状态以及正在执行的类和方法。在测试过程中，可以不定时的多生成几个DUMP文件进行观察比较。</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/5652645-ee784f0e2862ca6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/25/定位CPU占用过高的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

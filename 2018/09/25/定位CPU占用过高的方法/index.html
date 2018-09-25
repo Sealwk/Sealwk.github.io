@@ -90,21 +90,21 @@
 
 
 
-<meta name="description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。 解决思路 对接口持续进行并发，使用top命令确认PID    查看24871的线程数为256个，有两种方法：   cat /proc/2487">
+<meta name="description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。">
 <meta name="keywords" content="Test">
 <meta property="og:type" content="article">
 <meta property="og:title" content="定位CPU占用过高的方法">
 <meta property="og:url" content="http://yoursite.com/2018/09/25/定位CPU占用过高的方法/index.html">
 <meta property="og:site_name" content="Seal's Blog">
-<meta property="og:description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。 解决思路 对接口持续进行并发，使用top命令确认PID    查看24871的线程数为256个，有两种方法：   cat /proc/2487">
+<meta property="og:description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-0cfcafe23149f479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-07cf736c819d9a7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-def090fb1a03a2d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5652645-ee784f0e2862ca6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-25T12:19:12.000Z">
+<meta property="og:updated_time" content="2018-09-25T12:21:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定位CPU占用过高的方法">
-<meta name="twitter:description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。 解决思路 对接口持续进行并发，使用top命令确认PID    查看24871的线程数为256个，有两种方法：   cat /proc/2487">
+<meta name="twitter:description" content="前言最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5652645-0cfcafe23149f479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -382,6 +382,7 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在做接口压力测试的时候，对某接口进行并发，当并发达到100的时候，CPU占用达到75%以上，使用top和vmstat命令查看Average load达到20以上。但是其它指标，例如内存、网络、磁盘IO均在正常范围内，QPS、ART等指标性能非常好。</p>
+<a id="more"></a>
 <h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><ul>
 <li>对接口持续进行并发，使用top命令确认PID</li>
 </ul>
